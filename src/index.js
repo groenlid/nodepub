@@ -101,11 +101,6 @@ const document = (metadata, generateContentsCallback) => {
       });
     }
 
-    // Table of contents markup.
-    syncFiles.push({
-      name: 'toc.xhtml', folder: 'OEBPF/content', compress: true, content: markupFiles.getTOC(self),
-    });
-
     // Extra images - add filename into content property and prepare for async handling.
     const coverFilename = path.basename(self.coverImage);
     asyncFiles.push({

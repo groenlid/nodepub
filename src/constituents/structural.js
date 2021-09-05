@@ -74,7 +74,6 @@ const structural = {
       result += `    <item id='s${i}' media-type='application/xhtml+xml' href='content/s${i}.xhtml'/>[[EOL]]`;
     }
 
-    result += "    <item id='toc' media-type='application/xhtml+xml' href='content/toc.xhtml'/>[[EOL]]";
     result += "    <item id='css' media-type='text/css' href='css/ebook.css'/>[[EOL]]";
 
     for (i = 0; i < document.metadata.images.length; i += 1) {
@@ -112,9 +111,6 @@ const structural = {
     }
 
     result += '  </spine>[[EOL]]';
-    result += '  <guide>[[EOL]]';
-    result += "    <reference type='toc' title='Contents' href='content/toc.xhtml'></reference>[[EOL]]";
-    result += '  </guide>[[EOL]]';
     result += '</package>[[EOL]]';
 
     return replacements(document, replacements(document, result));
@@ -160,7 +156,6 @@ const structural = {
     document.filesForTOC.push({ title: document.metadata.contents, link: 'toc.xhtml', itemType: 'contents' });
     result += `  <navPoint class='toc' id='toc' playOrder='${playOrder++}'>[[EOL]]`;
     result += '    <navLabel><text>[[CONTENTS]]</text></navLabel>[[EOL]]';
-    result += "    <content src='content/toc.xhtml'/>[[EOL]]";
     result += '  </navPoint>[[EOL]]';
 
     for (i = 1; i <= document.sections.length; i += 1) {
